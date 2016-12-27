@@ -1,0 +1,11 @@
+## c:/Dropbox/Rpackages/starpolish/R/starpolish_main.R
+
+##    Chandler Lutz
+##    Questions/comments: cl.eco@cbs.dk
+##    $Revisions:      1.0.0     $Date:  2016-12-19
+
+#' Polish and manipulate stargazer output for latex files
+#'
+#' starpolish allows you to manipulate stargazer output for latex files
+#' @importFrom magrittr %>%
+"_PACKAGE"

@@ -1,0 +1,16 @@
+Package: starpolishr
+Title: polish stargazer (latex) files
+Version: 0.0.0.9000
+Authors@R: person("Chandler", "Lutz", email = "cl.eco@cbs.dk", role = c("aut", "cre"))
+Description: A set of useful functions for polishing stargazer (latex) files.
+Depends:
+    R (>= 3.3.2)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+    stargazer,
+    magrittr,
+    stringr
+RoxygenNote: 5.0.1
+Suggests: testthat
