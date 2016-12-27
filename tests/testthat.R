@@ -1,4 +1,4 @@
 library(testthat)
-library(starpolish)
+library(starpolishr)
 
-test_check("starpolish")
+test_check("starpolishr")

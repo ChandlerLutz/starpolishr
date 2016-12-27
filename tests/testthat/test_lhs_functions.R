@@ -7,7 +7,7 @@
 ##Clear the workspace
 rm(list = ls())
 
-library(stargazer); library(starpolish); library(magrittr)
+library(stargazer); library(magrittr)
 
 library(stargazer)
 data(mtcars)
