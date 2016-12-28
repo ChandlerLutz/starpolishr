@@ -5,24 +5,30 @@
 \title{To get a panel of stargazer output}
 \usage{
 star_panel(..., starlist = NULL, panel.names, reg = TRUE,
-  same.lhs.vars = TRUE, same.summary.stats = TRUE)
+  same.lhs.vars = TRUE, same.summary.stats = TRUE,
+  panel.label.fontface = "plain")
 }
 \arguments{
 \item{...}{\code{stargazer} output}
 
 \item{starlist}{a list of \code{stargazer} output}
 
-\item{panel.names}{the names for the panels in the same
-order as the stargazer output}
+\item{panel.names}{the names for the panels in the same order as
+the stargazer output}
 
-\item{reg}{(logical) set to TRUE if the panels are regression output;
-defualt is TRUE}
+\item{reg}{(logical) set to TRUE if the panels are regression
+output; defualt is TRUE}
 
 \item{same.lhs.vars}{(logical) set to TRUE if all panels have the
-same left-hand-side variables. Currently, only TRUE is supported}
+same left-hand-side variables. Currently, only TRUE is
+supported}
 
-\item{same.summary.stats}{(logical) set to TRUE if all panels have the
-same summary stats. Currently, only TRUE is supported}
+\item{same.summary.stats}{(logical) set to TRUE if all panels have
+the same summary stats. Currently, only TRUE is supported}
+
+\item{panel.label.fontface}{The fontface for the panel
+labels. Options are "plain", "italic", "bold",
+"bold.italic". Default is "plain".}
 }
 \value{
 the updated \code{stargazer} output
