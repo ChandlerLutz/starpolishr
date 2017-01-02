@@ -104,6 +104,15 @@ star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL) {
         stop("pattern must be the sampe length as line 1")
     }
 
+    ##Test to make sure each of the the elements in pattern is
+    ##in star
+    for (i in seq_along(pattern)) {
+        if (!grepl(pattern[i], star) %>% any) {
+            stop(paste0(pattern[i], " not found in star"))
+        }
+    }
+
+
     ##Get either latex or text output
     latex <- grepl("tabular", star) %>% any
     text <- grepl("==", star) %>% any
