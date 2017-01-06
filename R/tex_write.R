@@ -61,6 +61,7 @@ tex_write <- function(..., starlist = NULL, file, headers = FALSE, append = FALS
                          "\\documentclass[a4paper,12pt]{article}",
                          "\n",
                          "\\usepackage{caption}\n",
+                         "\\usepackage{siunitx}\n",
                          "\\begin{document}",
                          "\n")
 
