@@ -18,6 +18,7 @@ tex_start <- function(file) {
                          "\\documentclass[a4paper,12pt]{article}",
                          "\n",
                          "\\usepackage{caption}\n",
+                         "\\usepackage{siunitx}\n",
                          "\\begin{document}",
                          "\n")
     ##write

@@ -6,7 +6,6 @@
 
 ##Extra functions for cleaning stargazer ouput
 
-
 #' Insert a row in a stargazer table
 #'
 #' @param star the \code{stargazer} output
@@ -33,3 +32,25 @@ star_asterisks <- function(star) {
 
     return(star)
 }
+
+
+#' A function to for scientific unit columns from the latex
+#' \code{siunitx} package
+#'
+#' The latex \code{siunitx} package has to loaded in the preamble.
+#' See this answer on tex stackexchange:
+#' \url{http://tex.stackexchange.com/a/2747} This function is useful with \code{paste0} when updating column t
+#'
+#' @param table.format the latex \code{siunitx}. For example \code{3.2}
+#'     is three integers and two decimals. \code{table.format} can be a
+#'     string or numeric.
+#' @param rep.times the number of times to repeat the given column
+#' @export
+si_col <- function(table.format, rep.times = 1) {
+    out <- paste0("S[table-format=", table.format, "]")
+    if (rep.times > 1) {
+        out <- paste(rep(out, rep.times), collapse = "")
+    }
+    return(out)
+}
+

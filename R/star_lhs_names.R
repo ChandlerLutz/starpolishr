@@ -144,7 +144,7 @@ star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL,
     if (!is.null(multicol)) {
         if (length(multicol) == 1) {
             multicol <- rep(multicol, length(pattern))
-        }
+       }
     }
 
     ##get the line position of the dependent variables -- use the
