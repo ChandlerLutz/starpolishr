@@ -4,7 +4,8 @@
 \alias{star_lhs_names}
 \title{To replace the names of the LHS variables in \code{stargazer} output}
 \usage{
-star_lhs_names(star, pattern, line1, line2 = NULL, line3 = NULL)
+star_lhs_names(star, pattern, line1, line2 = NULL, line3 = NULL,
+  multicol = NULL)
 }
 \arguments{
 \item{star}{the \code{stargazer} output}
@@ -16,10 +17,19 @@ star_lhs_names(star, pattern, line1, line2 = NULL, line3 = NULL)
 \item{line2}{the optional variable name in the second line}
 
 \item{line3}{the optional variable name in teh third line}
+
+\item{multicol}{if not \code{NULL}, multicolumn labels will be
+used. Options are "l" for left, "c" for center, and "r" for
+right. A character vector can be used for different alignments
+across different columns. If a single character is used, that
+alignment will be used for all elements in pattern. If a latex
+multicol is already applied by stargazer, \code{multicol} will
+be ignored for that variable. This argument is only valid for
+latex output.}
 }
 \value{
-character vector with stargazer output
-with the updated LHS variable names
+character vector with stargazer output with the updated LHS
+    variable names
 }
 \description{
 To replace the names of the RFHS variables in \code{stargazer}.
@@ -63,6 +73,20 @@ star.out.3 <- star_lhs_names(star.out,
                              line3 = c("gallon", "")
                             )
 print(star.out.3)
+
+##For Multicolumn centered columns. Using multicolumn
+##for the column labels can be useful for siunitx
+##columns or if the column labels have a different alignment
+##than the rest of the table
+star.out.4 <- star_lhs_names(star.out,
+                             pattern = c("mpg", "hp"),
+                             line1 = c("miles", "horse-"),
+                             line2 = c("per", "power"),
+                             line3 = c("gallon", ""),
+                             multicol = c("c")
+                            )
+print(star.out.4)
+
 
 ##Text Examples
 ##Note that star_lhs_names() will NOT adjust the

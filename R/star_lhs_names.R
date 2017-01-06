@@ -30,8 +30,16 @@ getmode <- function(v) {
 #' @param line1 the variable name in the first line
 #' @param line2 the optional variable name in the second line
 #' @param line3 the optional variable name in teh third line
-#' @return character vector with stargazer output
-#' with the updated LHS variable names
+#' @return character vector with stargazer output with the updated LHS
+#'     variable names
+#' @param multicol if not \code{NULL}, multicolumn labels will be
+#'     used. Options are "l" for left, "c" for center, and "r" for
+#'     right. A character vector can be used for different alignments
+#'     across different columns. If a single character is used, that
+#'     alignment will be used for all elements in pattern. If a latex
+#'     multicol is already applied by stargazer, \code{multicol} will
+#'     be ignored for that variable. This argument is only valid for
+#'     latex output.
 #' @examples
 #' ## -- Regression Example -- ##
 #' library(stargazer)
@@ -66,6 +74,20 @@ getmode <- function(v) {
 #'                             )
 #' print(star.out.3)
 #'
+#' ##For Multicolumn centered columns. Using multicolumn
+#' ##for the column labels can be useful for siunitx
+#' ##columns or if the column labels have a different alignment
+#' ##than the rest of the table
+#' star.out.4 <- star_lhs_names(star.out,
+#'                              pattern = c("mpg", "hp"),
+#'                              line1 = c("miles", "horse-"),
+#'                              line2 = c("per", "power"),
+#'                              line3 = c("gallon", ""),
+#'                              multicol = c("c")
+#'                             )
+#' print(star.out.4)
+#'
+#'
 #' ##Text Examples
 #' ##Note that star_lhs_names() will NOT adjust the
 #' ##length of the character elements if the variable names in line1,
@@ -96,7 +118,8 @@ getmode <- function(v) {
 #'                             )
 #' print(star.out.3)
 #' @export
-star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL) {
+star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL,
+                           multicol = NULL) {
 
     ##if not null, pattern, line1, line2, and line3 must have the same length
     ##pattern must be the same length as line1
@@ -112,10 +135,17 @@ star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL) {
         }
     }
 
-
     ##Get either latex or text output
     latex <- grepl("tabular", star) %>% any
     text <- grepl("==", star) %>% any
+
+    ##If multicol is not null and has length 1, set it equal
+    ##to the length of all lhs variables
+    if (!is.null(multicol)) {
+        if (length(multicol) == 1) {
+            multicol <- rep(multicol, length(pattern))
+        }
+    }
 
     ##get the line position of the dependent variables -- use the
     ##mode to get the most likely candidate
@@ -132,7 +162,7 @@ star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL) {
     }
 
     ##remove any extra whitespace/newlines from line2.out.
-    ##note that we nee to escape back-slashes in both R and regex
+    ##note that we need to escape back-slashes in both R and regex
     ##So, to match \\ we need 2*4 + 2 = 10 backslashes. So, 8 escape
     ##backslashes and 2 regreular back slashes
     if (!is.null(line2)) {
@@ -145,8 +175,25 @@ star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL) {
         line3.out <- NULL
     }
 
+    ##Do the substitution
     for (i in seq_along(pattern)) {
+        ##check if multicolumn is already present. If not, add it as requested
+        ##by the user
+        if (latex && !grepl(paste0("multicolumn\\{.\\}\\{.\\}\\{",pattern[i]), line1.out)) {
+            line1[i] <- paste0("\\\\multicolumn{1}{", multicol[i], "}{", line1[i], "}")
+            ##For line2 and line3
+            if (!is.null(line2)) {
+                line2[i] <- paste0("\\\\multicolumn{1}{", multicol[i], "}{", line2[i], "}")
+            }
+            if (!is.null(line3)) {
+                line3[i] <- paste0("\\\\multicolumn{1}{", multicol[i], "}{", line3[i], "}")
+            }
+        } ##End of multicol if
+
         line1.out <- sub(pattern[i], line1[i], line1.out)
+        ##If latex, multicol, and no multicol already present,
+        ##add the multicol
+
         if (!is.null(line2)) {
             line2.out <- sub(pattern[i], line2[i], line2.out)
         }
