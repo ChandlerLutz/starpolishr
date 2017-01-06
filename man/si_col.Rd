@@ -15,8 +15,10 @@ string or numeric.}
 \item{rep.times}{the number of times to repeat the given column}
 }
 \description{
-The latex \code{siunitx} package has to loaded in the preamble.
+The latex \code{siunitx} package has to be loaded in the preamble.
 See this answer on tex stackexchange:
-\url{http://tex.stackexchange.com/a/2747} This function is useful with \code{paste0} when updating column t
+\url{http://tex.stackexchange.com/a/2747} This function is useful
+with \code{paste0} when updating column to work \code{siunitx} and
+aligning decimals.
 }
 

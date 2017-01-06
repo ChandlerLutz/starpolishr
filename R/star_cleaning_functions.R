@@ -37,9 +37,11 @@ star_asterisks <- function(star) {
 #' A function to for scientific unit columns from the latex
 #' \code{siunitx} package
 #'
-#' The latex \code{siunitx} package has to loaded in the preamble.
+#' The latex \code{siunitx} package has to be loaded in the preamble.
 #' See this answer on tex stackexchange:
-#' \url{http://tex.stackexchange.com/a/2747} This function is useful with \code{paste0} when updating column t
+#' \url{http://tex.stackexchange.com/a/2747} This function is useful
+#' with \code{paste0} when updating column to work \code{siunitx} and
+#' aligning decimals.
 #'
 #' @param table.format the latex \code{siunitx}. For example \code{3.2}
 #'     is three integers and two decimals. \code{table.format} can be a
