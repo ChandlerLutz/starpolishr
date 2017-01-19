@@ -179,7 +179,7 @@ star_lhs_names <- function(star, pattern, line1, line2 = NULL, line3 = NULL,
     for (i in seq_along(pattern)) {
         ##check if multicolumn is already present. If not, add it as requested
         ##by the user
-        if (latex && !grepl(paste0("multicolumn\\{.\\}\\{.\\}\\{",pattern[i]), line1.out)) {
+        if (latex && !is.null(multicol) && !grepl(paste0("multicolumn\\{.\\}\\{.\\}\\{",pattern[i]), line1.out)) {
             line1[i] <- paste0("\\\\multicolumn{1}{", multicol[i], "}{", line1[i], "}")
             ##For line2 and line3
             if (!is.null(line2)) {
