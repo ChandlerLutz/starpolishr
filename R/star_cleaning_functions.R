@@ -6,6 +6,56 @@
 
 ##Extra functions for cleaning stargazer ouput
 
+#' Insert column numbrers in a table
+#'
+#' Currently this only works for latex. This function is helpful when
+#' creating a stargazer table from matrix output as stargazer does not
+#' automatically use column numbers for matrices
+#'
+#' @param star the \code{stargazer} output
+#' @param insert.after insert the column numbers after
+#'     \code{inster.after}
+#' @param skip.col.1 skip the first column? If \code{TRUE} no column
+#'     number will be placed after the first column
+#' @return an updated version of the stargazer table with
+#' @examples
+#' library(stargazer)
+#' data(mtcars)
+#' star.out <- stargazer(as.matrix(head(mtcars)))
+#' print(star.out)
+#' star.out <- star_add_column_numbers(star.out, insert.after = 10)
+#' print(star.out)
+#' @export
+star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE) {
+
+    if (!is.latex(star))
+        stop("star_add_column_numbers() currently only supported with latex")
+
+    ##The number of columns
+    num.cols <- get_num_columns_tex(star)
+
+
+    if (skip.col.1) {
+        ##if skip.col.1 is TRUE, skip the first column
+
+        ##get the column numbers
+        col.nums <- paste0("(", 1:(num.cols - 1), ")", collapse = " & ")
+        ##add the first & for the first row and the end of the latex column
+        col.nums <- paste0(" & ", col.nums, " \\\\ \n")
+    } else {
+        ##use a column number for the first column
+
+        ##get the column numbers
+        col.nums <- paste0("(", 1:(num.cols - 1), ")", collapse = " & ")
+        ##add the first & for the first row and the end of the latex column
+        col.nums <- paste0(" & ", col.nums, " \\\\ ")
+    }
+
+    return(star_insert_row(star, col.nums, insert.after = insert.after))
+
+}
+
+
 #' Insert a row in a stargazer table
 #'
 #' @param star the \code{stargazer} output
