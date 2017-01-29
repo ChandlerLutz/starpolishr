@@ -41,7 +41,7 @@ star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE) {
         ##get the column numbers
         col.nums <- paste0("(", 1:(num.cols - 1), ")", collapse = " & ")
         ##add the first & for the first row and the end of the latex column
-        col.nums <- paste0(" & ", col.nums, " \\\\ \n")
+        col.nums <- paste0(" & ", col.nums, " \\\\ ")
     } else {
         ##use a column number for the first column
 
