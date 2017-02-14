@@ -32,7 +32,7 @@ star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE) {
         stop("star_add_column_numbers() currently only supported with latex")
 
     ##The number of columns
-    num.cols <- get_num_columns_tex(star)
+    num.cols <- star_ncol(star)
 
 
     if (skip.col.1) {
@@ -56,18 +56,6 @@ star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE) {
 }
 
 
-#' Insert a row in a stargazer table
-#'
-#' @param star the \code{stargazer} output
-#' @param string the string of text to insert into the table
-#' @param insert.after insert \code{string} after \code{inster.after}
-#' @return the updated \code{stargazer} output
-#' @export
-star_insert_row <- function(star, string, insert.after) {
-    return(c(star[1:insert.after], string, star[(insert.after + 1):length(star)]))
-}
-
-
 #' A function to replace asterisks with latex compatible values
 #'
 #' @param star the \code{stargazer} output
@@ -83,6 +71,33 @@ star_asterisks <- function(star) {
     return(star)
 }
 
+
+#' Insert a row in a stargazer table
+#'
+#' @param star the \code{stargazer} output
+#' @param string the string of text to insert into the table
+#' @param insert.after insert \code{string} after \code{inster.after}
+#' @return the updated \code{stargazer} output
+#' @export
+star_insert_row <- function(star, string, insert.after) {
+    return(c(star[1:insert.after], string, star[(insert.after + 1):length(star)]))
+}
+
+
+#' get the number of stargazer columns
+#'
+#' @param star the \code{stargazer} output
+#' @return the number of columns in the \code{stargazer} output
+#' @examples
+#' library(stargazer)
+#' data(mtcars)
+#' star.out <- stargazer(mtcars)
+#' star_ncol(star.out)
+#' @export
+star_ncol <- function(star) {
+
+    return(max(stringr::str_count(star, "&")) + 1)
+}
 
 #' A function to for scientific unit columns from the latex
 #' \code{siunitx} package

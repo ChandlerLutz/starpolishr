@@ -16,13 +16,6 @@ is.latex <- function(star) grepl("tabular", star) %>% any
 #' @param star the \code{stargazer} output
 is.text <- function(star) grepl("==", star) %>% any
 
-#' get the number of stargazer columns
-#'
-#' @param star the \code{stargazer} output
-get_num_columns_tex <- function(star) {
-    return(max(stringr::str_count(star, "&")) + 1)
-}
-
 #' Get \code{stargazer} line numbers by section
 #'
 #' To get the start line numbers, main line numbers, and end line numbers

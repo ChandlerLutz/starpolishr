@@ -19,6 +19,7 @@ tex_start <- function(file) {
                          "\n",
                          "\\usepackage{caption}\n",
                          "\\usepackage{siunitx}\n",
+                         "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
                          "\\begin{document}",
                          "\n")
     ##write
@@ -62,6 +63,7 @@ tex_write <- function(..., starlist = NULL, file, headers = FALSE, append = FALS
                          "\n",
                          "\\usepackage{caption}\n",
                          "\\usepackage{siunitx}\n",
+                         "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
                          "\\begin{document}",
                          "\n")
 

@@ -87,7 +87,7 @@ star_panel <- function(..., starlist = NULL, panel.names,
         ##note: add @{} to left alignment as stargazer adds
         ##extra line space. see http://tex.stackexchange.com/a/276468/16412
         temp.panel.name <- paste0("\\multicolumn{",
-                                  get_num_columns_tex(star.lines[[i]]),
+                                  star_ncol(star.lines[[i]]),
                                   ##make sure to add an empty column after the
                                   ##panl name
                                   "}{@{} l}{")

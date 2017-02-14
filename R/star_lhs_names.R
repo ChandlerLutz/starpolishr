@@ -30,8 +30,6 @@ getmode <- function(v) {
 #' @param line1 the variable name in the first line
 #' @param line2 the optional variable name in the second line
 #' @param line3 the optional variable name in teh third line
-#' @return character vector with stargazer output with the updated LHS
-#'     variable names
 #' @param multicol if not \code{NULL}, multicolumn labels will be
 #'     used. Options are "l" for left, "c" for center, and "r" for
 #'     right. A character vector can be used for different alignments
@@ -40,6 +38,8 @@ getmode <- function(v) {
 #'     multicol is already applied by stargazer, \code{multicol} will
 #'     be ignored for that variable. This argument is only valid for
 #'     latex output.
+#' @return character vector with stargazer output with the updated LHS
+#'     variable names
 #' @examples
 #' ## -- Regression Example -- ##
 #' library(stargazer)
