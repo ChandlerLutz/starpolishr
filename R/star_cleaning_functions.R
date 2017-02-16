@@ -76,11 +76,55 @@ star_asterisks <- function(star) {
 #'
 #' @param star the \code{stargazer} output
 #' @param string the string of text to insert into the table
-#' @param insert.after insert \code{string} after \code{inster.after}
+#' @param insert.after insert \code{string} after
+#'     \code{inster.after}. \code{insert.after} can be a vector, so
+#'     you can insert multiple strings at one time. If
+#'     \code{insert.after} has length 1, then all elements of
+#'     \code{string} are insterted after \code{insert.after}.
 #' @return the updated \code{stargazer} output
+#' @examples
+#' ## -- Regression Example -- ##
+#' library(stargazer)
+#' data(mtcars)
+#' mod.mtcars.1 <- lm(mpg ~ hp + wt, mtcars)
+#' mod.mtcars.2 <- lm(mpg ~ hp + wt + cyl, mtcars)
+#' mod.mtcars.3 <- lm(hp ~ wt + cyl, mtcars)
+#' ##latex example
+#' star.out <- stargazer(mod.mtcars.1, mod.mtcars.2, mod.mtcars.3,
+#'                       type = "latex")
+#' print(star.out)
+#' star_insert_row(star.out, "Controls? & No & No & No \\\\", insert.after = 27)
+#' star_insert_row(star.out,
+#'                c("Controls? & No & No & No \\\\",
+#'                  "Linear Model? & Yes & Yes & Yes \\\\"),
+#'                insert.after = c(27, 32))
 #' @export
 star_insert_row <- function(star, string, insert.after) {
-    return(c(star[1:insert.after], string, star[(insert.after + 1):length(star)]))
+
+    if (length(string) < length(insert.after)) {
+        stop("Error: in star_insert_row() insert.after has more elements than string")
+    }
+
+    if (length(insert.after) == 1) {
+        ##If the length of insert.after is 1, use the append function
+        return(append(star, string, after = insert.after))
+    }
+    ##c(star[1:insert.after], string, star[(insert.after + 1):length(star)]))
+
+    if (length(string) > length(insert.after)) {
+        ##string has more elements than Insert after
+        ##fill insert.after with its last element so its length
+        ##matches string
+        length.diff <- length(string) - length(insert.after)
+        insert.after <- c(insert.after,
+                          rep(insert.after[length(insert.after)], length.diff))
+    }
+
+    ##From http://stackoverflow.com/a/1495204/1317443
+    id <- c(seq_along(star), insert.after + 0.5)
+    star <- c(star, string)
+    star <- star[order(id)]
+    return(star)
 }
 
 

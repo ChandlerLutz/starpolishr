@@ -20,6 +20,7 @@ tex_start <- function(file) {
                          "\\usepackage{caption}\n",
                          "\\usepackage{siunitx}\n",
                          "\\usepackage{rotating}\n",
+                         "\\usepackage[flushleft]{threeparttable}",
                          "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
                          "\\begin{document}",
                          "\n")
@@ -65,6 +66,7 @@ tex_write <- function(..., starlist = NULL, file, headers = FALSE, append = FALS
                          "\\usepackage{caption}\n",
                          "\\usepackage{siunitx}\n",
                          "\\usepackage{rotating}\n",
+                         "\\usepackage[flushleft]{threeparttable}",
                          "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
                          "\\begin{document}",
                          "\n")

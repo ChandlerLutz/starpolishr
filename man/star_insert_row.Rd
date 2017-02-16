@@ -11,12 +11,33 @@ star_insert_row(star, string, insert.after)
 
 \item{string}{the string of text to insert into the table}
 
-\item{insert.after}{insert \code{string} after \code{inster.after}}
+\item{insert.after}{insert \code{string} after
+\code{inster.after}. \code{insert.after} can be a vector, so
+you can insert multiple strings at one time. If
+\code{insert.after} has length 1, then all elements of
+\code{string} are insterted after \code{insert.after}.}
 }
 \value{
 the updated \code{stargazer} output
 }
 \description{
 Insert a row in a stargazer table
+}
+\examples{
+## -- Regression Example -- ##
+library(stargazer)
+data(mtcars)
+mod.mtcars.1 <- lm(mpg ~ hp + wt, mtcars)
+mod.mtcars.2 <- lm(mpg ~ hp + wt + cyl, mtcars)
+mod.mtcars.3 <- lm(hp ~ wt + cyl, mtcars)
+##latex example
+star.out <- stargazer(mod.mtcars.1, mod.mtcars.2, mod.mtcars.3,
+                      type = "latex")
+print(star.out)
+star_insert_row(star.out, "Controls? & No & No & No \\\\\\\\", insert.after = 27)
+star_insert_row(star.out,
+               c("Controls? & No & No & No \\\\\\\\",
+                 "Linear Model? & Yes & Yes & Yes \\\\\\\\"),
+               insert.after = c(27, 32))
 }
 
