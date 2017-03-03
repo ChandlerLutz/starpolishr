@@ -124,7 +124,7 @@ star_notes_tex <- function(star, note.type = c("caption", "threeparttable"), not
                                           "\\end{tablenotes}"),
                                    "\\end{threeparttable}"
                                    )
-        threeparttable.ind <- c(begin.table,
+        threeparttable.ind <- c(begin.table + 2,
                                 end.tabular,
                                 end.table - 1
                                 )
