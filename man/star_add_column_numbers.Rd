@@ -4,7 +4,8 @@
 \alias{star_add_column_numbers}
 \title{Insert column numbrers in a table}
 \usage{
-star_add_column_numbers(star, insert.after, skip.col.1 = TRUE)
+star_add_column_numbers(star, insert.after, skip.col.1 = TRUE,
+  add.space = FALSE, multicol = NULL)
 }
 \arguments{
 \item{star}{the \code{stargazer} output}
@@ -14,9 +15,19 @@ star_add_column_numbers(star, insert.after, skip.col.1 = TRUE)
 
 \item{skip.col.1}{skip the first column? If \code{TRUE} no column
 number will be placed after the first column}
+
+\item{add.space}{add space before the previous column? Defaults to \code{FALSE}}
+
+\item{multicol}{if not \code{NULL}, multicolumn labels will be
+used. Options are "l" for left, "c" for center, and "r" for
+right. A character vector can be used for different alignments
+across different columns. If a single character is used, that
+alignment will be used for all elements in pattern. If a latex
+multicol is already applied by stargazer, \code{multicol} will
+be ignored for that variable.}
 }
 \value{
-an updated version of the stargazer table with
+an updated version of the stargazer table with column numbers
 }
 \description{
 Currently this only works for latex. This function is helpful when
@@ -28,7 +39,15 @@ library(stargazer)
 data(mtcars)
 star.out <- stargazer(as.matrix(head(mtcars)))
 print(star.out)
-star.out <- star_add_column_numbers(star.out, insert.after = 10)
-print(star.out)
+##Insert column number using default values
+star_add_column_numbers(star.out, insert.after = 10)
+##Do not skip the first column when creating column numbers
+star_add_column_numbers(star.out, insert.after = 10, skip.col.1 = FALSE)
+##Add a space before the previous column
+star_add_column_numbers(star.out, insert.after = 10, add.space = TRUE)
+##Use multicolumns in latex. Could also pass a vector of columns
+star_add_column_numbers(star.out, insert.after = 10, multicol = "c")
+##Use multicolumn and don't skip the first column
+star_add_column_numbers(star.out, insert.after = 10, skip.col.1 = FALSE, multicol = "c")
 }
 

@@ -17,16 +17,33 @@
 #'     \code{inster.after}
 #' @param skip.col.1 skip the first column? If \code{TRUE} no column
 #'     number will be placed after the first column
-#' @return an updated version of the stargazer table with
+#' @param add.space add space before the previous column? Defaults to \code{FALSE}
+#' @param multicol if not \code{NULL}, multicolumn labels will be
+#'     used. Options are "l" for left, "c" for center, and "r" for
+#'     right. A character vector can be used for different alignments
+#'     across different columns. If a single character is used, that
+#'     alignment will be used for all elements in pattern. If a latex
+#'     multicol is already applied by stargazer, \code{multicol} will
+#'     be ignored for that variable.
+#' @return an updated version of the stargazer table with column numbers
 #' @examples
 #' library(stargazer)
 #' data(mtcars)
 #' star.out <- stargazer(as.matrix(head(mtcars)))
 #' print(star.out)
-#' star.out <- star_add_column_numbers(star.out, insert.after = 10)
-#' print(star.out)
+#' ##Insert column number using default values
+#' star_add_column_numbers(star.out, insert.after = 10)
+#' ##Do not skip the first column when creating column numbers
+#' star_add_column_numbers(star.out, insert.after = 10, skip.col.1 = FALSE)
+#' ##Add a space before the previous column
+#' star_add_column_numbers(star.out, insert.after = 10, add.space = TRUE)
+#' ##Use multicolumns in latex. Could also pass a vector of columns
+#' star_add_column_numbers(star.out, insert.after = 10, multicol = "c")
+#' ##Use multicolumn and don't skip the first column
+#' star_add_column_numbers(star.out, insert.after = 10, skip.col.1 = FALSE, multicol = "c")
 #' @export
-star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE) {
+star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE, add.space = FALSE,
+                                    multicol = NULL) {
 
     if (!is.latex(star))
         stop("star_add_column_numbers() currently only supported with latex")
@@ -34,21 +51,47 @@ star_add_column_numbers <- function(star, insert.after, skip.col.1 = TRUE) {
     ##The number of columns
     num.cols <- star_ncol(star)
 
+    ##If multicol is not null and has length 1, set it equal
+    ##to the length of num.cols
+    if (!is.null(multicol)) {
+        if (length(multicol) == 1 && skip.col.1) {
+            multicol <- rep(multicol, num.cols - 1)
+        } else if (length(multicol) == 1) {
+            multicol <- rep(multicol, num.cols)
+        }
+    }
+
+
+    ##Get the first and last strings for use with multicolumn
+    if (!is.null(multicol)) {
+        ##Use multicolumns
+        first.string <- paste0("\\multicolumn{1}{", multicol, "}{(")
+        last.string <- paste0(")}")
+    } else {
+        ##No multicolumns
+        first.string <- "("
+        last.string <- ")"
+    }
 
     if (skip.col.1) {
         ##if skip.col.1 is TRUE, skip the first column
 
         ##get the column numbers
-        col.nums <- paste0("(", 1:(num.cols - 1), ")", collapse = " & ")
+        col.nums <- paste0(first.string, 1:(num.cols - 1), last.string, collapse = " & ")
         ##add the first & for the first row and the end of the latex column
         col.nums <- paste0(" & ", col.nums, " \\\\ ")
     } else {
         ##use a column number for the first column
 
         ##get the column numbers
-        col.nums <- paste0("(", 1:(num.cols - 1), ")", collapse = " & ")
+        col.nums <- paste0(first.string, 1:num.cols, last.string, collapse = " & ")
         ##add the first & for the first row and the end of the latex column
-        col.nums <- paste0(" & ", col.nums, " \\\\ ")
+        col.nums <- paste0(col.nums, " \\\\ ")
+    }
+
+    if (add.space) {
+        ##Add the space as in the normal stargazer output
+        col.nums <- paste0("\\\\[-1.8ex] ", col.nums)
     }
 
     return(star_insert_row(star, col.nums, insert.after = insert.after))

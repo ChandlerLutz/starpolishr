@@ -23,7 +23,7 @@
 #' @export
 star_notes_caption <- function(star, note) {
 
-    warning("star_notes_caption() is deprecated, use star_notes_tex()")
+    warning("Warning: star_notes_caption() is deprecated, use star_notes_tex()")
 
     if (!is.latex(star)) stop("Only Latex currently supported")
 

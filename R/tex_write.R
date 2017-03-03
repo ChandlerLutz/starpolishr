@@ -76,7 +76,7 @@ tex_write <- function(..., starlist = NULL, file, headers = FALSE, append = FALS
     if (headers == TRUE) write(top.header, file)
 
     if (!headers & !append) {
-        ##Empty the text fiel
+        ##Empty the text file
         write("", file)
     }
 
