@@ -9,3 +9,7 @@
 #' starpolish allows you to manipulate stargazer output for latex files
 #' @importFrom magrittr %>%
 "_PACKAGE"
+
+##For magrittr dot. From https://github.com/tidyverse/magrittr/issues/29
+if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
+

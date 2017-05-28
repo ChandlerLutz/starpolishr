@@ -86,10 +86,10 @@ star_panel <- function(..., starlist = NULL, panel.names,
         ##The temporary panel name
         ##note: add @{} to left alignment as stargazer adds
         ##extra line space. see http://tex.stackexchange.com/a/276468/16412
-        temp.panel.name <- paste0("\\multicolumn{",
+        temp.panel.name <- paste0("\\\\[-2.0ex] \\multicolumn{",
                                   star_ncol(star.lines[[i]]),
                                   ##make sure to add an empty column after the
-                                  ##panl name
+                                  ##panel name
                                   "}{@{} l}{")
         ##Add in the panel name with the fontface requested by the user
         if (panel.label.fontface == "plain") {

@@ -1,6 +1,6 @@
 Package: starpolishr
 Title: polish stargazer (latex) files
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: person("Chandler", "Lutz", email = "cl.eco@cbs.dk", role = c("aut", "cre"))
 Description: A set of useful functions for polishing stargazer (latex) files.
 Depends:
