@@ -208,3 +208,19 @@ si_col <- function(table.format, rep.times = 1) {
     return(out)
 }
 
+#' Turn a latex table into a \code{sidewaystable} latex table
+#'
+#' @param star the \code{stargazer} output
+#' @return the latex table turned sideways
+#' @examples
+#' library(stargazer)
+#' data(mtcars)
+#' star.out <- stargazer(mtcars)
+#' star_tex_sidewaystable(star.out)
+#' @export
+star_tex_sidewaystable <- function(star) {
+    star <- sub("begin\\{table\\}", "begin{sidewaystable}", star)
+    star <- sub("end\\{table\\}", "end{sidewaystable}", star)
+    return(star)
+}
+

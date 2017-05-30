@@ -16,7 +16,7 @@ star_rhs_names(star, pattern, line1, line2 = NULL)
 \item{line2}{the optional variable name in the second line. The
 \code{line2} argument takes advantage of the notion that the standard
 error (for example) of a regression is printed on the line below
-the coefficient}
+the coefficient. NOTE: Text in \code{line2} will be inserted directly.}
 }
 \value{
 a character vector with the updated stargazer output
@@ -27,8 +27,9 @@ The function also allows for an optional second line.
 }
 \details{
 Note: the \code{pattern} and \code{line1} arguments must have the
-same length. If \code{line2} is not \code{NULL}, it must have
-the same length as \code{pattern} and \code{line1}
+same length. If \code{line2} is not \code{NULL}, it must have the
+same length as \code{pattern} and \code{line1}. Also, \code{line2}
+will be inserted into \code{star} directly.
 }
 \examples{
 ## -- Regression example -- ##
