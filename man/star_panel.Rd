@@ -19,12 +19,16 @@ the stargazer output}
 \item{reg}{(logical) set to TRUE if the panels are regression
 output; defualt is TRUE}
 
-\item{same.lhs.vars}{(logical) set to TRUE if all panels have the
-same left-hand-side variables. Currently, only TRUE is
-supported}
+\item{same.lhs.vars}{(logical) set to \code{TRUE} if all panels
+have the same left-hand-side variables. Currently, only
+\code{TRUE} is supported}
 
-\item{same.summary.stats}{(logical) set to TRUE if all panels have
-the same summary stats. Currently, only TRUE is supported}
+\item{same.summary.stats}{(logical) set to \code{TRUE} if all
+panels have the same summary stats. Default is \code{TRUE}. If
+set to \code{FALSE}, different panels can have different
+summary stats. \code{same.summary.stats = FALSE} is only
+supported for regression and so \code{reg} must be set to
+\code{TRUE}}
 
 \item{panel.label.fontface}{The fontface for the panel
 labels. Options are "plain", "italic", "bold",
@@ -48,9 +52,9 @@ star.out.1 <- stargazer(mod.mtcars.1, mod.mtcars.2, keep.stat = "n")
 ##Second set of models with weight as a regressor
 mod.mtcars.3 <- lm(mpg ~ hp + wt, mtcars)
 mod.mtcars.4 <- lm(mpg ~ hp + cyl + wt, mtcars)
-star.out.2 <- stargazer(mod.mtcars.1, mod.mtcars.2, keep.stat = "n")
+star.out.2 <- stargazer(mod.mtcars.1, mod.mtcars.2, keep.stat = c("n", "rsq"))
 
-##stargazer panel
+##stargazer panel -- same summary statistics across panels.
 star.panel.out <- star_panel(star.out.1, star.out.2,
                              panel.names = c("Without Weight", "With Weight")
                             )
@@ -58,6 +62,17 @@ print(star.panel.out)
 ##write to a tex file and compile to check output
 \dontrun{
 tex_write(star.panel.out, file = "my_tex_file.tex", headers = TRUE)
+}
+
+##stargazer panel -- different summary statistics across panels.
+star.panel.out2 <- star_panel(star.out.1, star.out.2,
+                              same.summary.stats = FALSE,
+                              panel.names = c("Without Weight", "With Weight")
+                             )
+print(star.panel.out2)
+##write to a tex file and compile to check output
+\dontrun{
+tex_write(star.panel.out2, file = "my_tex_file2.tex", headers = TRUE)
 }
 }
 
