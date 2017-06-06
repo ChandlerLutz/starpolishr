@@ -216,9 +216,9 @@ si_col <- function(table.format, rep.times = 1) {
 #' library(stargazer)
 #' data(mtcars)
 #' star.out <- stargazer(mtcars)
-#' star_tex_sidewaystable(star.out)
+#' star_sidewaystable(star.out)
 #' @export
-star_tex_sidewaystable <- function(star) {
+star_sidewaystable <- function(star) {
     star <- sub("begin\\{table\\}", "begin{sidewaystable}", star)
     star <- sub("end\\{table\\}", "end{sidewaystable}", star)
     return(star)
