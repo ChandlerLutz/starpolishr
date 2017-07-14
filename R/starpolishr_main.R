@@ -1,4 +1,4 @@
-## c:/Dropbox/Rpackages/starpolish/R/starpolish_main.R
+## c:/Dropbox/Rpackages/starpolish/R/starpolishr_main.R
 
 ##    Chandler Lutz
 ##    Questions/comments: cl.eco@cbs.dk
