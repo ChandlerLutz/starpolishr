@@ -200,7 +200,7 @@ star_ncol <- function(star) {
 #'     string or numeric.
 #' @param rep.times the number of times to repeat the given column
 #' @export
-si_col <- function(table.format, rep.times = 1) {
+star_si_col <- function(table.format, rep.times = 1) {
     out <- paste0("S[table-format=", table.format, "]")
     if (rep.times > 1) {
         out <- paste(rep(out, rep.times), collapse = "")

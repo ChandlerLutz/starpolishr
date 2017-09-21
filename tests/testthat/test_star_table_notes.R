@@ -17,9 +17,9 @@ data(mtcars)
 mod.mtcars.1 <- lm(mpg ~ hp, mtcars)
 mod.mtcars.2 <- lm(mpg ~ hp + cyl, mtcars)
 star.out <- stargazer(mod.mtcars.1, mod.mtcars.2)
-star.out <- star_notes_caption(star.out, "custom note")
+star.out <- star_notes_tex(star.out, note.type = "caption", "custom note")
 
-test_that("star_notes_caption() works", {
-    expect_is(star_notes_caption(star.out, "custom note"), "character")
+test_that("star_notes_tex() works", {
+    expect_is(star_notes_tex(star.out, note.type = "caption", "custom note"), "character")
 })
 
