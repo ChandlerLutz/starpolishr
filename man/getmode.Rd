@@ -15,4 +15,3 @@ the mode
 \description{
 https://www.tutorialspoint.com/r/r_mean_median_mode.htm
 }
-

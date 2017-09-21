@@ -27,4 +27,3 @@ star.out <- stargazer(mod.mtcars.1, mod.mtcars.2)
 star.out <- star_notes_caption(star.out, "custom note")
 print(star.out)
 }
-
