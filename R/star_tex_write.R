@@ -11,7 +11,7 @@
 #'
 #' @param file a \code{string} with the file name
 #' @export
-tex_start <- function(file) {
+star_tex_start <- function(file) {
 
     ##the lines to write
     temp.lines <- paste0("%% ", file, "\n",
@@ -34,7 +34,7 @@ tex_start <- function(file) {
 #' @param file a \code{character} string with the file name
 #' @param append append to the end of a tex file; defaults to TRUE
 #' @export
-tex_end <- function(file, append = TRUE) {
+star_tex_end <- function(file, append = TRUE) {
 
     ##the lines to write
     temp.lines <- c("\n\n \\end{document}")
@@ -52,7 +52,7 @@ tex_end <- function(file, append = TRUE) {
 #' @param append logical to append at the end of a tex file; defaults
 #' to \code{FALSE}
 #' @export
-tex_write <- function(..., starlist = NULL, file, headers = FALSE, append = FALSE) {
+star_tex_write <- function(..., starlist = NULL, file, headers = FALSE, append = FALSE) {
 
     ##Get all of the output in a list
     starlist <- c(list(...), starlist)
