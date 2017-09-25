@@ -29,7 +29,7 @@ Here is a list of key `starpolishr` functions in order of how often I use them. 
 -   `star_tex_notes` -- Adds custom notes using either the latex [caption](https://www.ctan.org/pkg/caption) or the latex [threeparttable](https://www.ctan.org/pkg/threeparttable).
 -   `star_tex_write` -- writes latex tables to a file and optionally adds header files and common packages
 -   `star_lhs_names` and `star_rhs_names` -- updates variable names using regular expressions. The advantage of these functions is that they allow for variable names to span more than one line.
--   `star_panel` -- panels multiple related `stargazer` tables into a single stargazer table.
+-   `star_panel` -- panels multiple related `stargazer` tables into a single latex table.
 -   `star_insert_row` -- insert a row after a given row in a `stargazer` table
 -   `star_sidewaystable` -- converts a latex table to a latex `sidewaystable`
 -   `star_add_column_numbers` -- if you pass a matrix to `stargazer`, it won't add column numbers. This function will add column numbers to a latex table.

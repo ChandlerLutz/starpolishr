@@ -31,7 +31,7 @@ body {
 <h2 id="installation">Installation</h2>
 <p>You can install starpolishr from github with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ChandlerLutz/starpolishr&quot;</span>)</code></pre></div>
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;ChandlerLutz/starpolishr&quot;</span>)</code></pre></div>
 <h2 id="quick-tips">Quick Tips</h2>
 <ul>
 <li>The first argument in all <code>starpolishr</code> functions is a <code>stargazer</code> table, allowing for easy compatibility with the <a href="https://cran.r-project.org/web/packages/magrittr/index.html">magrittr</a> <code>%&gt;%</code>.</li>
@@ -43,7 +43,7 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <li><code>star_tex_notes</code> -- Adds custom notes using either the latex <a href="https://www.ctan.org/pkg/caption">caption</a> or the latex <a href="https://www.ctan.org/pkg/threeparttable">threeparttable</a>.</li>
 <li><code>star_tex_write</code> -- writes latex tables to a file and optionally adds header files and common packages</li>
 <li><code>star_lhs_names</code> and <code>star_rhs_names</code> -- updates variable names using regular expressions. The advantage of these functions is that they allow for variable names to span more than one line.</li>
-<li><code>star_panel</code> -- panels multiple related <code>stargazer</code> tables into a single stargazer table.</li>
+<li><code>star_panel</code> -- panels multiple related <code>stargazer</code> tables into a single latex table.</li>
 <li><code>star_insert_row</code> -- insert a row after a given row in a <code>stargazer</code> table</li>
 <li><code>star_sidewaystable</code> -- converts a latex table to a latex <code>sidewaystable</code></li>
 <li><code>star_add_column_numbers</code> -- if you pass a matrix to <code>stargazer</code>, it won't add column numbers. This function will add column numbers to a latex table.</li>
