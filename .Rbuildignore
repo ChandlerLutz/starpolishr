@@ -1,3 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 vignettes/pdf
+^README\.Rmd$
+^README-.*\.png$
+READM*
