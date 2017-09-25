@@ -1,5 +1,5 @@
 ---
-title: "`starpolishr`: Post-processing of `stagazer` output "
+title: "`starpolishr`: Post-polishing of `stagazer` output "
 author: "Chandler Lutz"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -56,10 +56,10 @@ data(mtcars)
 mod.mtcars.1 <- lm(mpg ~ hp, mtcars)
 mod.mtcars.2 <- lm(mpg ~ hp + cyl, mtcars)
 star.out.1 <- stargazer(mod.mtcars.1, mod.mtcars.2,
-                        title = "Motor Car Regressions", 
+                        title = "Motor Car Regressions",
                         type = "latex",
                         #For exact latex positioning using the latex 'float' package
-                        table.placement = "H", 
+                        table.placement = "H",
                         keep.stat = "n",
                         header = FALSE)
 ```
@@ -75,7 +75,7 @@ mod.mtcars.3 <- lm(mpg ~ hp + wt, mtcars)
 mod.mtcars.4 <- lm(mpg ~ hp + cyl + wt, mtcars)
 star.out.2 <- stargazer(mod.mtcars.3, mod.mtcars.4,
                         #For exact latex positioning using the latex 'float' package
-                        table.placement = "H", 
+                        table.placement = "H",
                         keep.stat = c("n", "rsq"),
                         header = FALSE)
 ```

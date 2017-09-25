@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 
 # starpolishr
 
-This package allows for easy post processing of latex [stargazer](https://cran.r-project.org/web/packages/stargazer/index.html)
+This package allows for easy post polishing of latex [stargazer](https://cran.r-project.org/web/packages/stargazer/index.html)
 output. See
 [this vignette](https://github.com/ChandlerLutz/starpolishr/blob/master/vignettes/pdf/starpolishr-intro.pdf) for
 a quick introduction. For examples, see the `Tables` section of my
