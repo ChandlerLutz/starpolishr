@@ -52,7 +52,7 @@ star.out.1 <- stargazer(mod.mtcars.1, mod.mtcars.2, keep.stat = "n")
 ##Second set of models with weight as a regressor
 mod.mtcars.3 <- lm(mpg ~ hp + wt, mtcars)
 mod.mtcars.4 <- lm(mpg ~ hp + cyl + wt, mtcars)
-star.out.2 <- stargazer(mod.mtcars.1, mod.mtcars.2, keep.stat = c("n", "rsq"))
+star.out.2 <- stargazer(mod.mtcars.3, mod.mtcars.4, keep.stat = c("n", "rsq"))
 
 ##stargazer panel -- same summary statistics across panels.
 star.panel.out <- star_panel(star.out.1, star.out.2,

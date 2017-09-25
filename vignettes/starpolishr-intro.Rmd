@@ -1,0 +1,142 @@
+---
+title: "`starpolishr`: Post-processing of `stagazer` output "
+author: "Chandler Lutz"
+date: "`r Sys.Date()`"
+output: pdf_document
+header-includes:
+  - \usepackage{graphicx}
+  - \usepackage{float}
+  - \usepackage{caption}
+  - \floatplacement{figure}{H}   ##So figures get placed correctly in pdfs
+  - \floatplacement{table}{H}   ##So figures get placed correctly in pdfs
+  - \usepackage{setspace}
+  - \onehalfspacing
+urlcolor: blue
+
+# Required: Vignette metadata for inclusion in a package.
+vignette: >
+  %\VignetteIndexEntry{starpolishr}
+  %\VignetteKeywords{R,stargazer,latex,regression tables}
+  %\VignetteDepends{starpolishr,stargazer,magrittr}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- css style for line spacing -->
+<style type = "text/css">
+p {
+	line-height: 1.5;
+}
+</style>
+
+
+
+First note that the first argument in all `starpolishr` functions is a
+`stargazer` table, allowing for easy compatibility with
+the
+[magrittr](https://cran.r-project.org/web/packages/magrittr/index.html) `%>%`.
+Also, all of the functions in the `starpolishr` package begin with
+`star_` for easy `tab` completion in emacs or rstudio.
+
+# Basic Stargazer Tables
+
+To start, let's run a couple of regressions. These will be miles per
+gallon, `mpg`, on `hp` and `cyl` from the `mtcars` dataset. We'll also
+produce a
+basic
+[stargazer](https://cran.r-project.org/web/packages/stargazer/index.html) table.
+
+```{r message=FALSE, results = 'asis'}
+library(stargazer); library(starpolishr); library(magrittr)
+data(mtcars)
+mod.mtcars.1 <- lm(mpg ~ hp, mtcars)
+mod.mtcars.2 <- lm(mpg ~ hp + cyl, mtcars)
+star.out.1 <- stargazer(mod.mtcars.1, mod.mtcars.2,
+                        title = "Motor Car Regressions", 
+                        type = "latex",
+                        #For exact latex positioning using the latex 'float' package
+                        table.placement = "H", 
+                        keep.stat = "n",
+                        header = FALSE)
+```
+
+
+Obviously, a potential confound is the vehicle weight, `wt`. For the
+purposes of this vignette, let's say we want the regressions that
+employ the `wt` variable in a separate table:
+
+```{r results = 'asis'}
+#Second set of models with weight as a regressor
+mod.mtcars.3 <- lm(mpg ~ hp + wt, mtcars)
+mod.mtcars.4 <- lm(mpg ~ hp + cyl + wt, mtcars)
+star.out.2 <- stargazer(mod.mtcars.3, mod.mtcars.4,
+                        #For exact latex positioning using the latex 'float' package
+                        table.placement = "H", 
+                        keep.stat = c("n", "rsq"),
+                        header = FALSE)
+```
+
+# Updating Regression Variable Names
+
+We can improve a number of things about these tables. First, the
+left-hand and right-hand side variables are a bit cryptic. Let's clean
+this up using `starpolishr` `star_lhs_names()` and `star_rhs_names()`
+functions, which use regular expressions to replace variable
+names. The advantage of these functions is that they allow the
+variable names to span more than one line. As we want to apply these
+functions to both tables, let's create a function to minimize
+duplicative code.
+
+```{r }
+clean_var_names <- function(table) {
+    table %>%
+        #Update the RHS names
+        star_rhs_names(pattern = c("hp", "cyl", "wt"),
+                       line1 = c("Hoarsepower", "Number of", "Vehicle"),
+                       line2 = c("", "Engine Cylinders", "Weight")) %>%
+        star_lhs_names(pattern = c("mpg"),
+                       line1 = "Miles per",
+                       line2 = "Gallon")
+}
+
+```
+
+Now let's apply the function to the two stargazer tables and print
+
+```{r results = 'asis'}
+star.out.1 <- clean_var_names(star.out.1)
+star.out.2 <- clean_var_names(star.out.2)
+```
+
+```{r results = 'asis'}
+cat(star.out.1)
+```
+
+```{r results = 'asis'}
+cat(star.out.2)
+```
+
+\clearpage
+
+# Create a table with 2 panels and add custom notes
+
+Now let's combine the tables into a two panel single table using the
+`star_panel()` function and add custom table notes using the
+`star_notes_tex()` function. Finally, we'll print the output
+
+
+```{r results='asis'}
+star_panel(star.out.1, star.out.2,
+           panel.names = c("Reg Without Weight", "Reg With Weight"),
+           panel.label.fontface = "bold" #For bold panel names
+           ) %>%
+    #Add table notes
+    star_notes_tex(note.type = "caption", #Use the latex 'caption' package for notes
+                   note = "Standard errors are in parentheses") %>%
+    cat
+```
+
