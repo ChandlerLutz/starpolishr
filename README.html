@@ -27,7 +27,7 @@ body {
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <h1 id="starpolishr">starpolishr</h1>
-<p>This package allows for easy post processing of latex <code>stargazer</code> output. See <a href="https://github.com/ChandlerLutz/starpolishr/blob/master/vignettes/pdf/starpolishr-intro.pdf">this vignette</a> for a quick introduction. For examples, see the <code>Tables</code> section of my papers <a href="https://chandlerlutz.github.io/pdf/california-foreclosure-prevention-laws.pdf">here</a> and <a href>here</a>. All of these tables were generated exclusively within R using <code>stargazer</code> and <code>starpolishr</code>.</p>
+<p>This package allows for easy post processing of latex <code>stargazer</code> output. See <a href="https://github.com/ChandlerLutz/starpolishr/blob/master/vignettes/pdf/starpolishr-intro.pdf">this vignette</a> for a quick introduction. For examples, see the <code>Tables</code> section of my papers <a href="https://chandlerlutz.github.io/pdf/california-foreclosure-prevention-laws.pdf">here</a> and <a href="https://chandlerlutz.github.io/pdf/local-labor-markets-canada-us.pdf">here</a>. All of these tables were generated exclusively within R using <code>stargazer</code> and <code>starpolishr</code>.</p>
 <h2 id="installation">Installation</h2>
 <p>You can install starpolishr from github with:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;devtools&quot;)</span>
@@ -38,14 +38,14 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 <li>All of the functions in the <code>starpolishr</code> package begin with <code>star_</code> for easy <code>tab</code> completion in emacs or rstudio.</li>
 </ul>
 <h2 id="key-functions">Key Functions</h2>
-<p>Here is a list of key <code>starpolishr</code> functions in order of how often I use them:</p>
+<p>Here is a list of key <code>starpolishr</code> functions in order of how often I use them. See their help files for more details.</p>
 <ul>
 <li><code>star_tex_notes</code> -- Adds custom notes using either the latex <a href="https://www.ctan.org/pkg/caption">caption</a> or the latex <a href="https://www.ctan.org/pkg/threeparttable">threeparttable</a>.</li>
 <li><code>star_tex_write</code> -- writes latex tables to a file and optionally adds header files and common packages</li>
 <li><code>star_lhs_names</code> and <code>star_rhs_names</code> -- updates variable names using regular expressions. The advantage of these functions is that they allow for variable names to span more than one line.</li>
 <li><code>star_panel</code> -- panels multiple related <code>stargazer</code> tables into a single stargazer table.</li>
 <li><code>star_insert_row</code> -- insert a row after a given row in a <code>stargazer</code> table</li>
-<li><code>star_sidewaystable</code> -- converts a <code>latex</code> table to a latex <code>sidewaystable</code></li>
+<li><code>star_sidewaystable</code> -- converts a latex table to a latex <code>sidewaystable</code></li>
 <li><code>star_add_column_numbers</code> -- if you pass a matrix to <code>stargazer</code>, it won't add column numbers. This function will add column numbers to a latex table.</li>
 </ul>
 <h2 id="authors">Authors</h2>
