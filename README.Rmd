@@ -19,7 +19,7 @@ output. See
 [this vignette](https://github.com/ChandlerLutz/starpolishr/blob/master/vignettes/pdf/starpolishr-intro.pdf) for
 a quick introduction. For examples, see the `Tables` section of my
 papers [here](https://chandlerlutz.github.io/pdf/california-foreclosure-prevention-laws.pdf) and [here](). All of these tables were generated
-exclusively withing R using `stargazer` and `starpolishr`.
+exclusively within R using `stargazer` and `starpolishr`.
 
 ## Installation
 
