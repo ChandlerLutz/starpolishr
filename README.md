@@ -3,7 +3,7 @@
 starpolishr
 ===========
 
-This package allows for easy post processing of latex `stargazer` output. See [this vignette](https://github.com/ChandlerLutz/starpolishr/blob/master/vignettes/pdf/starpolishr-intro.pdf) for a quick introduction. For examples, see the `Tables` section of my papers [here](https://chandlerlutz.github.io/pdf/california-foreclosure-prevention-laws.pdf) and [here](https://chandlerlutz.github.io/pdf/local-labor-markets-canada-us.pdf). All of these tables were generated exclusively within R using `stargazer` and `starpolishr`.
+This package allows for easy post processing of latex [stargazer](https://cran.r-project.org/web/packages/stargazer/index.html) output. See [this vignette](https://github.com/ChandlerLutz/starpolishr/blob/master/vignettes/pdf/starpolishr-intro.pdf) for a quick introduction. For examples, see the `Tables` section of my papers [here](https://chandlerlutz.github.io/pdf/california-foreclosure-prevention-laws.pdf) and [here](https://chandlerlutz.github.io/pdf/local-labor-markets-canada-us.pdf). All of these tables were generated exclusively within R using `stargazer` and `starpolishr`.
 
 Installation
 ------------
