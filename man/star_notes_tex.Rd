@@ -37,3 +37,4 @@ star_notes_tex(star.out, note.type = "caption", note = "my table notes")
 ##use latex threeparttable package
 star_notes_tex(star.out, note.type = "threeparttable", note = "my table notes")
 }
+

@@ -14,3 +14,4 @@ star_tex_end(file, append = TRUE)
 \description{
 Create the end of a tex document
 }
+

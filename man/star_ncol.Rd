@@ -21,3 +21,4 @@ data(mtcars)
 star.out <- stargazer(mtcars)
 star_ncol(star.out)
 }
+

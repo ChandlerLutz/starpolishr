@@ -75,3 +75,4 @@ print(star.panel.out2)
 tex_write(star.panel.out2, file = "my_tex_file2.tex", headers = TRUE)
 }
 }
+

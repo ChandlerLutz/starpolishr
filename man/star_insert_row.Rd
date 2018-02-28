@@ -40,3 +40,4 @@ star_insert_row(star.out,
                  "Linear Model? & Yes & Yes & Yes \\\\\\\\"),
                insert.after = c(27, 32))
 }
+

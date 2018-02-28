@@ -8,7 +8,4 @@
 \description{
 starpolish allows you to manipulate stargazer output for latex files
 }
-\author{
-\strong{Maintainer}: Chandler Lutz \email{cl.eco@cbs.dk}
 
-}

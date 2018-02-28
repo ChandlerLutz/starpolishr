@@ -12,3 +12,4 @@ is.latex(star)
 \description{
 Check if stargazer output is in latex form
 }
+

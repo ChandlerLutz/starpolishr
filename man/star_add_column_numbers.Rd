@@ -50,3 +50,4 @@ star_add_column_numbers(star.out, insert.after = 10, multicol = "c")
 ##Use multicolumn and don't skip the first column
 star_add_column_numbers(star.out, insert.after = 10, skip.col.1 = FALSE, multicol = "c")
 }
+

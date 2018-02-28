@@ -21,3 +21,4 @@ See this answer on tex stackexchange:
 with \code{paste0} when updating column to work \code{siunitx} and
 aligning decimals.
 }
+

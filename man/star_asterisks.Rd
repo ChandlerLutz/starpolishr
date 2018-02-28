@@ -16,3 +16,4 @@ asterisks
 \description{
 A function to replace asterisks with latex compatible values
 }
+
