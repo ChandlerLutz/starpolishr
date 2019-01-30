@@ -4,24 +4,26 @@
 ##    Questions/comments: cl.eco@cbs.dk
 ##    $Revisions:      1.0.0     $Date:  2016-12-19
 
+
+context("star_lhs_order function")
+
 ##Clear the workspace
 rm(list = ls())
 
 library(stargazer); library(magrittr)
 
-library(stargazer)
 data(mtcars)
 mod.mtcars.1 <- lm(mpg ~ hp + wt, mtcars)
 mod.mtcars.2 <- lm(mpg ~ hp + wt + cyl, mtcars)
 mod.mtcars.3 <- lm(hp ~ wt + cyl, mtcars)
 ##latex example
 star.out.latex  <- stargazer(mod.mtcars.1, mod.mtcars.2, mod.mtcars.3,
-                             type = "latex")
+                                            type = "latex")
 ##text example
 star.out.text  <- stargazer(mod.mtcars.1, mod.mtcars.2, mod.mtcars.3,
-                            type = "text")
+                                           type = "text")
 
-context("star_lhs_order function")
+
 
 test_that("star_lhs_function() works for regression", {
     ## -- Latex -- ##

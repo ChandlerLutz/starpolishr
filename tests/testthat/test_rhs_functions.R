@@ -4,10 +4,11 @@
 ##    Questions/comments: cl.eco@cbs.dk
 ##    $Revisions:      1.0.0     $Date:  2016-12-19
 
+
+context("star_rhs_order function")
+
 ##Clear the workspace
 rm(list = ls())
-
-
 
 library(stargazer); library(magrittr)
 
@@ -24,7 +25,7 @@ star.out.summ.text <- stargazer(mtcars[,c("mpg", "hp", "wt")], type = "text")
 
 ## -- star_rhs_order () -- ##
 
-context("star_rhs_order function")
+
 
 
 test_that("star_rhs_order() works for regression", {
