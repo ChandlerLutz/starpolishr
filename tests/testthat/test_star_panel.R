@@ -27,3 +27,11 @@ test_that("star_panel() function works", {
 })
 
 
+## Test that star_panel() works with a list
+star.panel.out <- star_panel(starlist = list(star.out.1, star.out.2),
+                             panel.names = c("Without Weight", "With Weight")
+                             )
+
+test_that("star_panel() function works iwth a list", {
+    expect_is(star.panel.out, "character")
+})
