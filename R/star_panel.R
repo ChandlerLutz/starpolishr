@@ -69,7 +69,7 @@ star_panel <- function(..., starlist = NULL, panel.names,
                        panel.label.fontface = "plain") {
 
     ##Get all of the star output
-    starlist <- c(list(...), starlist)
+    if (is.null(starlist)) starlist <- c(list(...))
     latex <- is.latex(starlist[[1]])
     text <- is.text(starlist[[1]])
 

@@ -95,4 +95,3 @@ star.out.summ <- star_rhs_names(star.out.summ,
                                )
 print(star.out.summ)
 }
-

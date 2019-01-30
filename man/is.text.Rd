@@ -12,4 +12,3 @@ is.text(star)
 \description{
 Check if stargazer output is in text form
 }
-

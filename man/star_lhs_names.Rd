@@ -118,4 +118,3 @@ star.out.3 <- star_lhs_names(star.out,
                             )
 print(star.out.3)
 }
-

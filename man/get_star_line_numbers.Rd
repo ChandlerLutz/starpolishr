@@ -20,4 +20,3 @@ output
 To get the start line numbers, main line numbers, and end line numbers
 of \code{stargazer} output
 }
-

@@ -22,4 +22,3 @@ to \code{FALSE}}
 \description{
 Write a stargazer output to a tex file
 }
-
