@@ -183,7 +183,12 @@ star_insert_row <- function(star, string, insert.after) {
 #' @export
 star_ncol <- function(star) {
 
-    return(max(stringr::str_count(star, "&")) + 1)
+  max.num.ampersands <- max(stringr::str_count(star, "&"))
+  max.escaped.ampersands <- max(stringr::str_count(star, "\\\\&"))
+  
+  num.cols <- max.num.ampersands - max.escaped.ampersands + 1
+  
+  return(num.cols)
 }
 
 #' A function to for scientific unit columns from the latex
