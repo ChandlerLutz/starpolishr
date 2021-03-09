@@ -21,9 +21,9 @@ star_tex_start <- function(file) {
                          "\\usepackage{siunitx}\n",
                          "\\usepackage{rotating}\n",
                          "\\usepackage{natbib}\n",
-                         "\\usepackage[flushleft]{threeparttable}",
+                         "\\usepackage[flushleft]{threeparttable}\n",
                          "\\usepackage{amssymb}\n", 
-                         "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
+                         "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}\n",
                          "\\begin{document}",
                          "\n")
     ##write
@@ -69,8 +69,9 @@ star_tex_write <- function(..., starlist = NULL, file, headers = FALSE, append =
                          "\\usepackage{siunitx}\n",
                          "\\usepackage{rotating}\n",
                          "\\usepackage{natbib}\n",
-                         "\\usepackage[flushleft]{threeparttable}",
-                         "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
+                         "\\usepackage[flushleft]{threeparttable}\n",
+                         "\\usepackage{amssymb}\n", 
+                         "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}\n",
                          "\\begin{document}",
                          "\n")
 
