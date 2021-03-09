@@ -4,8 +4,7 @@
 \alias{star_tex_write}
 \title{Write a stargazer output to a tex file}
 \usage{
-star_tex_write(..., starlist = NULL, file, headers = FALSE,
-  append = FALSE)
+star_tex_write(..., starlist = NULL, file, headers = FALSE, append = FALSE)
 }
 \arguments{
 \item{...}{stargazer ouptut}

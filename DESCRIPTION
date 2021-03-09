@@ -1,6 +1,6 @@
 Package: starpolishr
 Title: polish stargazer (latex) files
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: person("Chandler", "Lutz", email = "cl.eco@cbs.dk", role = c("aut", "cre"))
 Description: A set of useful functions for polishing stargazer (latex) files.
 Depends:
@@ -12,7 +12,7 @@ Imports:
     stargazer,
     magrittr,
     stringr
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.1
 Suggests:
     testthat,
     knitr,

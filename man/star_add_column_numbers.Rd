@@ -4,8 +4,13 @@
 \alias{star_add_column_numbers}
 \title{Insert column numbrers in a table}
 \usage{
-star_add_column_numbers(star, insert.after, skip.col.1 = TRUE,
-  add.space = FALSE, multicol = NULL)
+star_add_column_numbers(
+  star,
+  insert.after,
+  skip.col.1 = TRUE,
+  add.space = FALSE,
+  multicol = NULL
+)
 }
 \arguments{
 \item{star}{the \code{stargazer} output}

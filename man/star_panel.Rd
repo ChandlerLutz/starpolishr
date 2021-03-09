@@ -4,9 +4,15 @@
 \alias{star_panel}
 \title{To get a panel of stargazer output}
 \usage{
-star_panel(..., starlist = NULL, panel.names, reg = TRUE,
-  same.lhs.vars = TRUE, same.summary.stats = TRUE,
-  panel.label.fontface = "plain")
+star_panel(
+  ...,
+  starlist = NULL,
+  panel.names,
+  reg = TRUE,
+  same.lhs.vars = TRUE,
+  same.summary.stats = TRUE,
+  panel.label.fontface = "plain"
+)
 }
 \arguments{
 \item{...}{\code{stargazer} output}

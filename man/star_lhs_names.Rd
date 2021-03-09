@@ -4,8 +4,14 @@
 \alias{star_lhs_names}
 \title{To replace the names of the LHS variables in \code{stargazer} output}
 \usage{
-star_lhs_names(star, pattern, line1, line2 = NULL, line3 = NULL,
-  multicol = NULL)
+star_lhs_names(
+  star,
+  pattern,
+  line1,
+  line2 = NULL,
+  line3 = NULL,
+  multicol = NULL
+)
 }
 \arguments{
 \item{star}{the \code{stargazer} output}
