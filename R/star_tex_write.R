@@ -22,6 +22,7 @@ star_tex_start <- function(file) {
                          "\\usepackage{rotating}\n",
                          "\\usepackage{natbib}\n",
                          "\\usepackage[flushleft]{threeparttable}",
+                         "\\usepackage{amssymb}\n", 
                          "\\usepackage[a4paper, hmargin=0.5in,vmargin=0.5in]{geometry}",
                          "\\begin{document}",
                          "\n")
