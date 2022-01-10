@@ -1,7 +1,7 @@
 Package: starpolishr
 Title: polish stargazer (latex) files
-Version: 0.0.0.9005
-Authors@R: person("Chandler", "Lutz", email = "cl.eco@cbs.dk", role = c("aut", "cre"))
+Version: 0.0.0.9006
+Authors@R: person("Chandler", "Lutz", email = "chandler.lutz@gmail.com", role = c("aut", "cre"))
 Description: A set of useful functions for polishing stargazer (latex) files.
 Depends:
     R (>= 3.3.2)
@@ -16,5 +16,6 @@ RoxygenNote: 7.1.1
 Suggests:
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    lfe
 VignetteBuilder: knitr
