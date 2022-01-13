@@ -35,6 +35,10 @@ star_write_and_compile_pdf <- function(..., starlist = NULL, file) {
   file.remove(files.to.remove)
   setwd(orig.wd)
 
+  ## Write without headers so the table can be inserted directly
+  ## into a latex document
+  star_tex_write(starlist = starlist, file = file, headers = FALSE)
+
   return()
 }
 
