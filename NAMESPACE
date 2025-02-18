@@ -3,6 +3,7 @@
 export(star_add_column_numbers)
 export(star_asterisks)
 export(star_change_felm_rhs_names)
+export(star_get_lhs_names)
 export(star_insert_row)
 export(star_lhs_names)
 export(star_ncol)
